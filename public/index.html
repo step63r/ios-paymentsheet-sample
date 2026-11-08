@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Apple Pay テスト</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Apple Pay テスト</h1>
+    <p class="amount" id="amount">&nbsp;</p>
+    <p class="note">Stripe テストモード。実カードを Wallet に入れても課金されません。</p>
+    <div id="express-checkout"></div>
+    <p id="unsupported" class="note" hidden>この端末・ブラウザでは Apple Pay が利用できません。</p>
+    <p id="message" role="status"></p>
+  </main>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
