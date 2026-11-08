@@ -40,5 +40,12 @@ Stripe は必ずテストモードのキーで使うこと。`pk_test_` / `sk_te
 
 ## 構成
 
-- `server.js`: `/config`、`/create-payment-intent`、静的配信
-- `public/`: 画面（`index.html` / `app.js` / `style.css`）
+- `server.js`: 商品定義（価格の正）、`/config`、`/products`、`/create-payment-intent`（カートから金額を再計算）、静的配信
+- `public/`: 画面
+  - `index.html` / `style.css`: 商品一覧・カート・お支払い・完了の4画面（ハッシュ遷移）
+  - `app.js`: カート（localStorage）と画面遷移
+  - `checkout.js`: Express Checkout Element と決済確定
+
+## 画面の流れ
+
+商品一覧（`#/`）→ カート（`#/cart`）→ お支払い（`#/checkout`、Apple Pay ボタン）→ 完了（`#/complete`）

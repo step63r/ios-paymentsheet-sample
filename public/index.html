@@ -3,18 +3,53 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Apple Pay テスト</title>
+  <title>Apple Pay テストショップ</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="card">
-    <h1>Apple Pay テスト</h1>
-    <p class="amount" id="amount">&nbsp;</p>
-    <p class="note">Stripe テストモード。実カードを Wallet に入れても課金されません。</p>
-    <div id="express-checkout"></div>
-    <p id="unsupported" class="note" hidden>この端末・ブラウザでは Apple Pay が利用できません。</p>
-    <p id="message" role="status"></p>
+  <header class="bar">
+    <a href="#/" class="brand">Test Shop</a>
+    <a href="#/cart" class="cart-link" aria-label="カート">🛒<span id="cart-count" class="badge" hidden>0</span></a>
+  </header>
+
+  <main>
+    <section id="view-products" class="view" hidden>
+      <h1>商品一覧</h1>
+      <div id="product-list" class="grid"></div>
+    </section>
+
+    <section id="view-cart" class="view" hidden>
+      <h1>カート</h1>
+      <div id="cart-items"></div>
+      <p class="total-row">合計 <strong id="cart-total"></strong></p>
+      <div class="actions">
+        <a href="#/" class="btn secondary">買い物を続ける</a>
+        <a href="#/checkout" id="to-checkout" class="btn primary">レジに進む</a>
+      </div>
+    </section>
+
+    <section id="view-checkout" class="view" hidden>
+      <h1>お支払い</h1>
+      <div id="checkout-items" class="glass"></div>
+      <p class="total-row">合計 <strong id="checkout-total"></strong></p>
+      <div id="express-checkout"></div>
+      <p id="unsupported" class="note" hidden>この端末・ブラウザでは Apple Pay が利用できません。</p>
+      <p id="message" role="status"></p>
+      <p class="note">Stripe テストモード。実カードを Wallet に入れても課金されません。</p>
+      <div class="actions">
+        <a href="#/cart" class="btn secondary">カートに戻る</a>
+      </div>
+    </section>
+
+    <section id="view-complete" class="view" hidden>
+      <h1>ご注文ありがとうございました</h1>
+      <p id="complete-detail" class="glass"></p>
+      <div class="actions">
+        <a href="#/" class="btn primary">商品一覧へ</a>
+      </div>
+    </section>
   </main>
+
   <script src="https://js.stripe.com/v3/"></script>
   <script src="app.js" type="module"></script>
 </body>
